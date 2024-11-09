@@ -35,10 +35,53 @@ describe('Home', () => {
         cy.get('#submit').should('have.css', 'background-color', 'rgb(0, 123, 255)')
     });
 
+    it.only('visit check box page directly and checking the background color ', () => {
 
-    it('visit text box page directly', () => {
-
-        cy.visit('/text-box')
+        cy.visit('/checkbox')
+        cy.get('.text-center').contains('Check Box').should('be.visible')
+        cy.get('[title="Toggle"]').click();
 
     });
+
+
+    it('visit radio button page  and select yes', () => {
+
+        cy.visit('/radio-button')
+        cy.get('.text-center').contains('Radio Button').should('be.visible')
+        // cy.get('#yesRadio').click();
+        cy.get('label[for="yesRadio"]').click();
+        cy.get('.text-success').should('have.text', 'Yes')
+
+    });
+
+
+    it('visit buttons page directly', () => {
+
+        cy.visit('/buttons')
+
+    });
+
+    it('visit links page directly', () => {
+
+        cy.visit('/links')
+
+    });
+
+    it('visit links page directly', () => {
+
+        cy.visit('/links')
+
+    });
+
+
+    it('visit upload-download directly', () => {
+
+        cy.visit('/upload-download')
+
+    });
+
+
+
+
 })
+
